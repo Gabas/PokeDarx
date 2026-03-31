@@ -2,9 +2,9 @@ class Pokemon {
   int numero;
   String nome;
   String tipo;
-  int nivel;
-  int hpAtual;
-  int hpMaximo;
+  int _nivel;
+  int _hpAtual;
+  int _hpMaximo;
   bool capturado;
 
   // Construtor principal
@@ -12,22 +12,74 @@ class Pokemon {
     this.numero,
     this.nome,
     this.tipo,
-    this.nivel,
-    this.hpAtual,
-    this.hpMaximo,
+    int nivel,
+    int hpAtual,
+    int hpMaximo,
     this.capturado,
-  ) {
+  ) : _nivel = nivel,
+      _hpAtual = hpAtual,
+      _hpMaximo = hpMaximo {
     // Validações do construtor
-    if (nivel < 1 || nivel > 100) {
+    if (_nivel < 1 || _nivel > 100) {
       throw ArgumentError('Erro: O nível deve começar entre 1 e 100.');
     }
-    if (hpMaximo <= 0) {
+    if (_hpMaximo <= 0) {
       throw ArgumentError('Erro: O HP Máximo deve ser maior que 0.');
     }
-    if (hpAtual > hpMaximo) {
+    if (_hpAtual < 0) {
+      throw ArgumentError('Erro: O HP Atual não pode ser negativo.');
+    }
+    if (_hpAtual > _hpMaximo) {
       throw ArgumentError(
         'Erro: O HP Atual não pode ser maior que o HP Máximo.',
       );
+    }
+  }
+
+  int get nivel => _nivel;
+  int get hpAtual => _hpAtual;
+  int get hpMaximo => _hpMaximo;
+
+  void subirNivel(int quantidade) {
+    if (quantidade < 0) {
+      throw ArgumentError(
+        'Erro: Valores negativos não são aceitos em subirNivel.',
+      );
+    }
+
+    _nivel += quantidade;
+
+    if (_nivel > 100) {
+      _nivel = 100;
+    }
+    if (_nivel < 1) {
+      _nivel = 1;
+    }
+  }
+
+  void receberDano(int dano) {
+    if (dano < 0) {
+      throw ArgumentError(
+        'Erro: Valores negativos não são aceitos em receberDano.',
+      );
+    }
+
+    _hpAtual -= dano;
+
+    if (_hpAtual < 0) {
+      _hpAtual = 0;
+    }
+  }
+
+  void curar(int valor) {
+    if (valor < 0) {
+      throw ArgumentError('Erro: Valores negativos não são aceitos em curar.');
+    }
+
+    _hpAtual += valor;
+
+    if (_hpAtual > _hpMaximo) {
+      _hpAtual = _hpMaximo;
     }
   }
 
