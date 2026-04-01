@@ -7,6 +7,9 @@ class Pokemon {
   int _hpMaximo;
   bool capturado;
 
+  String? proximaEvolucao;
+  int nivelEvolucao;
+
   // Construtor principal
   Pokemon(
     this.numero,
@@ -16,6 +19,8 @@ class Pokemon {
     int hpAtual,
     int hpMaximo,
     this.capturado,
+    this.proximaEvolucao,
+    this.nivelEvolucao,
   ) : _nivel = nivel,
       _hpAtual = hpAtual,
       _hpMaximo = hpMaximo {
@@ -83,6 +88,24 @@ class Pokemon {
     }
   }
 
+  void evolui(){
+    if(proximaEvolucao == null){
+      print('$nome não pode evoluir.');
+      return;
+    }
+    if(_nivel < nivelEvolucao){
+      print('$nome ainda não atingiu o nivel necessario para poder evoluir');
+      return;
+    }
+    print('$nome está evoluindo para a $proximaEvolucao!');
+
+    nome = proximaEvolucao!;
+    proximaEvolucao = null;
+
+    _hpMaximo += 20;
+    _hpAtual = _hpMaximo;
+  }
+
   void exibirFicha() {
     print('--- Ficha do Pokémon ---');
     print('Número: #$numero');
@@ -91,6 +114,8 @@ class Pokemon {
     print('Nível: $nivel');
     print('HP: $hpAtual / $hpMaximo');
     print('Capturado: $capturado');
+    print('Proxima Evolução: ${proximaEvolucao ?? "Nenhuma"}');
+    print('Nivel para Evoluir: $nivelEvolucao');
     print('------------------------\n');
   }
 }
