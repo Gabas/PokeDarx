@@ -1,5 +1,5 @@
 import 'pokemon.dart';
-
+ 
 class Pokedex {
   List<Pokemon> _pokemons = [];
 
