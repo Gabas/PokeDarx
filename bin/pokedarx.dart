@@ -28,7 +28,7 @@ void main() {
 
 
 
-  print('--- TESTE POKEDEX ---');
+  print('---TESTE---');
 
   var pokedex = Pokedex();
 
@@ -38,34 +38,34 @@ void main() {
   pokedex.adicionarPokemon(pikachu);
   pokedex.adicionarPokemon(bulbasaur);
 
-  print('--- LISTA TODOS ---');
+  print('---LISTA OS POKEMONS---');
   pokedex.listarTodos();
 
-  print('--- BUSCAR #25 ---');
+  print('---BUSCAR O NUMERO 25---');
   var p = pokedex.buscarPorNumero(25);
   if (p != null) {
     p.exibirFicha();
   }
 
-  print('--- REMOVER #158 ---');
+  print('---REMOVER O 158---');
   print(pokedex.removerPokemonPorNumero(158));
 
-  print('--- CAPTURADOS ---');
+  print('---POKEMONS CAPTURADOS---');
   for (var poke in pokedex.listarCapturados()) {
     print(poke.nome);
   }
 
-  print('--- TIPO PLANTA ---');
+  print('---TIPO PLANTA---');
   for (var poke in pokedex.listarPorTipo('planta')) {
     print(poke.nome);
   }
 
-  print('--- NIVEL > 10 ---');
+  print('---NIVEL > 10---');
   for (var poke in pokedex.listarAcimaDoNivel(10)) {
     print(poke.nome);
   }
 
-  print('--- PODEM EVOLUIR ---');
+  print('---OS QUE PODEM EVOLUIR---');
   for (var poke in pokedex.listarQuePodemEvoluir()) {
     print(poke.nome);
   }
