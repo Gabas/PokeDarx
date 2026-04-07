@@ -6,9 +6,10 @@ class Pokemon {
   int _hpAtual;
   int _hpMaximo;
   bool capturado;
-
   String? proximaEvolucao;
   int nivelEvolucao;
+
+  int energia;
 
   // Construtor principal
   Pokemon(
@@ -20,8 +21,9 @@ class Pokemon {
     int hpMaximo,
     this.capturado,
     this.proximaEvolucao,
-    this.nivelEvolucao,
-  ) : _nivel = nivel,
+    this.nivelEvolucao, {
+    this.energia = 100,
+}) : _nivel = nivel,
       _hpAtual = hpAtual,
       _hpMaximo = hpMaximo {
     // Validações do construtor
@@ -106,6 +108,10 @@ class Pokemon {
     _hpAtual = _hpMaximo;
   }
 
+  int calcularAtaqueBase() {
+    return _nivel;
+  }
+
   void exibirFicha() {
     print('--- Ficha do Pokémon ---');
     print('Número: #$numero');
@@ -113,6 +119,7 @@ class Pokemon {
     print('Tipo: $tipo');
     print('Nível: $nivel');
     print('HP: $hpAtual / $hpMaximo');
+    print('Energia: $energia');
     print('Capturado: $capturado');
     print('Proxima Evolução: ${proximaEvolucao ?? "Nenhuma"}');
     print('Nivel para Evoluir: $nivelEvolucao');

@@ -3,8 +3,9 @@ description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
+# Gabriel: Tive que mudar a versão pra rodar no meu PC, mas fiquem a vontade pra mudar se necessário
 environment:
-  sdk: ^3.11.4
+  sdk: '>=3.11.1 <4.0.0'
 
 # Add regular dependencies here.
 dependencies:
