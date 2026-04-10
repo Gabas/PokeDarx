@@ -72,37 +72,39 @@ void main() {
   // }
 
 
-print('\n--- QUESTÃO 6: Herança ---');
-var charizard = PokemonFogo(6, 'Charizard', 36, 120, 120, true, null, 0); //
-var blastoise = PokemonAgua(9, 'Blastoise', 36, 130, 130, true, null, 0); //
-var raichu = PokemonEletrico(26, 'Raichu', 36, 100, 100, true, null, 0); //
+print('--- QUESTÃO 6: Herança ---');
+  var charizard = PokemonFogo(6, 'Charizard', 36, 120, 120, true, null, 0); 
+  var blastoise = PokemonAgua(9, 'Blastoise', 36, 130, 130, true, null, 0); 
+  var raichu = PokemonEletrico(26, 'Raichu', 36, 100, 100, true, null, 0); 
 
-charizard.exibirFicha(); //
-blastoise.exibirFicha(); //
-raichu.exibirFicha(); //
+  charizard.exibirFicha(); 
+  blastoise.exibirFicha(); 
+  raichu.exibirFicha(); 
 
-print('Ataque Base Charizard (Fogo): ${charizard.calcularAtaqueBase()}');
-print('Ataque Base Blastoise (Água): ${blastoise.calcularAtaqueBase()}');
-print('Ataque Base Raichu (Elétrico): ${raichu.calcularAtaqueBase()}');
+  print('Ataque Base Charizard (Fogo): ${charizard.calcularAtaqueBase()}');
+  print('Ataque Base Blastoise (Água): ${blastoise.calcularAtaqueBase()}');
+  print('Ataque Base Raichu (Elétrico): ${raichu.calcularAtaqueBase()}');
 
 
-print('\n--- QUESTÃO 7: Habilidades ---');
-var flamethrower = Flamethrower();
-var hydroPump = HydroPump();
+  print('\n--- QUESTÃO 7 e 8: Habilidades e Polimorfismo ---');
+  var flamethrower = Flamethrower();
+  var hydroPump = HydroPump();
 
-print('HP Inicial do Blastoise: ${blastoise.hpAtual}');
-flamethrower.usar(charizard, blastoise);
-print('HP do Blastoise após o ataque: ${blastoise.hpAtual}');
-print('Energia restante do Charizard: ${charizard.energia}');
+  executarTurno(charizard, blastoise, flamethrower);
 
-print('\nHP Inicial do Charizard: ${charizard.hpAtual}');
-hydroPump.usar(blastoise, charizard);
-print('HP do Charizard após o ataque: ${charizard.hpAtual}');
-print('Energia restante do Blastoise: ${blastoise.energia}');
+  executarTurno(blastoise, charizard, hydroPump);
 
-charizard.energia = 10;
-print('\nTentando usar Flamethrower sem energia...');
-flamethrower.usar(charizard, blastoise);
+  print('\n[O Charizard sofreu um ataque surpresa do Pikachu e ficou fraco...]');
+  charizard.receberDano(100); 
+
+  executarTurno(blastoise, charizard, hydroPump);
+
+  print('\n[Tentando usar ataque sem energia...]');
+  charizard.energia = 10;
+  flamethrower.usar(charizard, blastoise);
+
+// QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO
+
 
 }
 

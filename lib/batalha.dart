@@ -6,12 +6,12 @@ class PokemonFogo extends Pokemon {
 
   @override
   int calcularAtaqueBase() {
-    return nivel * 3; //
+    return nivel * 3;
   }
 
   @override
   void exibirFicha() {
-    print('\n[Categoria: Pokémon de Fogo]'); //
+    print('\n[Categoria: Pokémon de Fogo]');
     super.exibirFicha();
   }
 }
@@ -22,12 +22,12 @@ class PokemonAgua extends Pokemon {
 
   @override
   int calcularAtaqueBase() {
-    return (nivel * 2) + 10; //
+    return (nivel * 2) + 10;
   }
 
   @override
   void exibirFicha() {
-    print('\n[Categoria: Pokémon de Água]'); //
+    print('\n[Categoria: Pokémon de Água]');
     super.exibirFicha();
   }
 }
@@ -38,12 +38,12 @@ class PokemonEletrico extends Pokemon {
 
   @override
   int calcularAtaqueBase() {
-    return (nivel * 2) + 15; //
+    return (nivel * 2) + 15;
   }
 
   @override
   void exibirFicha() {
-    print('\n[Categoria: Pokémon Elétrico]'); //
+    print('\n[Categoria: Pokémon Elétrico]');
     super.exibirFicha();
   }
 }
@@ -58,14 +58,14 @@ abstract class Habilidade {
 }
 
 class Thunderbolt extends Habilidade {
-  Thunderbolt() : super('Thunderbolt', 15); //
+  Thunderbolt() : super('Thunderbolt', 15);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
-    if (usuario.energia >= custoEnergia) { //
-      usuario.energia -= custoEnergia; //
-      int dano = usuario.calcularAtaqueBase() + 5; //
-      alvo.receberDano(dano); //
+    if (usuario.energia >= custoEnergia) {
+      usuario.energia -= custoEnergia;
+      int dano = usuario.calcularAtaqueBase() + 5;
+      alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
       print('${usuario.nome} tentou usar $nome, mas não tem energia suficiente!');
@@ -74,14 +74,14 @@ class Thunderbolt extends Habilidade {
 }
 
 class HydroPump extends Habilidade {
-  HydroPump() : super('Hydro Pump', 5); //
+  HydroPump() : super('Hydro Pump', 5);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
-    if (usuario.energia >= custoEnergia) { //
-      usuario.energia -= custoEnergia; //
-      int dano = usuario.calcularAtaqueBase() + 7; //
-      alvo.receberDano(dano); //
+    if (usuario.energia >= custoEnergia) {
+      usuario.energia -= custoEnergia;
+      int dano = usuario.calcularAtaqueBase() + 7;
+      alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
       print('${usuario.nome} tentou usar $nome, mas não tem energia suficiente!');
@@ -90,17 +90,30 @@ class HydroPump extends Habilidade {
 }
 
 class Flamethrower extends Habilidade {
-  Flamethrower() : super('Flamethrower', 15); //
+  Flamethrower() : super('Flamethrower', 15);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
-    if (usuario.energia >= custoEnergia) { //
-      usuario.energia -= custoEnergia; //
-      int dano = usuario.calcularAtaqueBase() + 5; //
-      alvo.receberDano(dano); //
+    if (usuario.energia >= custoEnergia) {
+      usuario.energia -= custoEnergia;
+      int dano = usuario.calcularAtaqueBase() + 5;
+      alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
       print('${usuario.nome} tentou usar $nome, mas não tem energia suficiente!');
     }
+  }
+}
+
+void executarTurno(Pokemon atacante, Pokemon defensor, Habilidade habilidade) {
+  print('\n--- Turno de Batalha ---');
+  
+  habilidade.usar(atacante, defensor);
+
+  print('-> Resumo: ${atacante.nome} usou ${habilidade.nome}.');
+  print('-> HP restante de ${defensor.nome}: ${defensor.hpAtual}');
+
+  if (defensor.hpAtual <= 0) {
+    print('=> RESULTADO: O pokémon ${defensor.nome} foi derrotado!');
   }
 }

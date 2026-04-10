@@ -15,7 +15,6 @@ class Pokedex {
     return true;
   }
 
-
   bool removerPokemonPorNumero(int numero) {
     for (var poke in _pokemons) {
       if (poke.numero == numero) {
