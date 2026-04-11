@@ -1,7 +1,8 @@
 import 'registravel.dart';
 
 
-class Pokemon {
+class Pokemon implements RegistravelNaPokedex 
+{
   int numero;
   String nome;
   String tipo;
