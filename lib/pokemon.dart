@@ -17,7 +17,7 @@ class Pokemon implements RegistravelNaPokedex
 
   bool visto = false;
   bool favorito = false;
-  bool capturado = false;
+
   
 
   // Construtor principal
