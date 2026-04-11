@@ -1,3 +1,6 @@
+import 'registravel.dart';
+
+
 class Pokemon {
   int numero;
   String nome;
