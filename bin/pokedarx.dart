@@ -1,5 +1,5 @@
 import 'package:pokedarx/pokemon.dart';
-import 'package:pokedarx/pokedarx.dart';
+import 'package:pokedarx/pokedex.dart';
 import 'package:pokedarx/batalha.dart';
 
 void main() {
@@ -103,8 +103,9 @@ print('--- QUESTÃO 6: Herança ---');
   charizard.energia = 10;
   flamethrower.usar(charizard, blastoise);
 
-// QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO 
-// agr entendi pq pediu pra mim fazer kkkkkkkkkkkkkkkkkkkkkkkkkkkkk eu dobro e passo pro proximo
+// Gabriel: QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO 
+// Luiz: agr entendi pq pediu pra mim fazer kkkkkkkkkkkkkkkkkkkkkkkkkkkkk eu dobro e passo pro proximo
+// Gabriel: sobrou pra tu, Vinícius kkkkkkkkkkkkkk se fodeo
 
 
 
@@ -170,9 +171,21 @@ print('--- QUESTÃO 6: Herança ---');
   }
 
 
+
+
+
+
+  print('\n---Q11---');
   
+  print('Total de Pokémons registados: ${pokedex.totalPokemons()}');
+  
+  print('Quantidade por Tipo:');
+  var tipos = pokedex.quantidadePorTipo();
+  tipos.forEach((tipo, quantidade) {
+    print('  - $tipo: $quantidade');
+  });
+  
+  print('Média de Nível: ${pokedex.mediaDeNivel().toStringAsFixed(2)}');
+  print('Percentagem de Capturados: ${pokedex.percentualCapturados().toStringAsFixed(1)}%');
   
 }
-
-
-
