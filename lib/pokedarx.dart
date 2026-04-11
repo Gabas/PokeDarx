@@ -2,7 +2,7 @@ import 'pokemon.dart';
  
 class Pokedex {
   List<Pokemon> _pokemons = [];
-
+  List<Pokemon> get lista => _pokemons; // num tira isso aq
   // adiciona um pokemon na lista
   bool adicionarPokemon(Pokemon p) {
     for (var poke in _pokemons) {
