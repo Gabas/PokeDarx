@@ -103,8 +103,19 @@ print('--- QUESTÃO 6: Herança ---');
   charizard.energia = 10;
   flamethrower.usar(charizard, blastoise);
 
-// QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO
+// QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO 
+// agr entendi pq pediu pra mim fazer kkkkkkkkkkkkkkkkkkkkkkkkkkkkk eu dobro e passo pro proximo
 
+  
+print('\nTeste Pokdex');
+
+Pokemon pikachu = Pokemon('Pikachu', 55, 40, 100);
+
+pikachu.favoritar();
+pikachu.marcarComoVisto();
+pikachu.marcarComoCapturado();
+pikachu.favoritar();
+pikachu.desfavoritar();
 
 }
 
