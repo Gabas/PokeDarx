@@ -119,6 +119,59 @@ print('--- QUESTÃO 6: Herança ---');
 // pikachu.favoritar();
 // pikachu.desfavoritar();
 
+
+
+
+
+  
+
+  print('\n---Q10---');
+
+  Pokemon pikachu = Pokemon(25, 'Pikachu', 'Eletrico', 10, 35, 35, false, 'Raichu', 20);
+  var pokedex = Pokedex();
+  
+  pokedex.adicionarPokemon(pikachu);
+
+  var bulbasaur = Pokemon(1, 'Bulbasaur', 'Planta', 5, 25, 25, true, 'Ivysaur', 16);
+  var charmander = Pokemon(4, 'Charmander', 'Fogo', 8, 20, 20, true, 'Charmeleon', 16);
+  
+  bulbasaur.marcarComoCapturado();
+  bulbasaur.favoritar();
+  
+  pokedex.adicionarPokemon(bulbasaur);
+  pokedex.adicionarPokemon(charmander);
+  
+  print('\nPokémons com HP < 30:');
+  var hpBaixo = pokedex.lista.where((p) => p.hpAtual < 30);
+  
+  for (var p in hpBaixo) {
+    print(p.nome);
+  }
+  
+  var ordenadoNome = [...pokedex.lista];
+  ordenadoNome.sort((a, b) => a.nome.compareTo(b.nome)); // nao mexe, ta ordenando certo
+  print('\nOrdenados por nome');
+  for (var p in ordenadoNome) {
+    print(p.nome);
+  }
+  
+  var ordenadoNivel = [...pokedex.lista];
+  ordenadoNivel.sort((a, b) => b.nivel.compareTo(a.nivel));
+  print('\nOrdenados por nivel (decrescente)');
+  for (var p in ordenadoNivel) {
+    print('${p.nome} - Nível ${p.nivel}');
+  }
+  
+  print('\nPokemons favoritos:');
+  var favoritos = pokedex.lista.where((p) => p.favorito);
+  
+  for (var p in favoritos) {
+    print(p.nome);
+  }
+
+
+  
+  
 }
 
 
