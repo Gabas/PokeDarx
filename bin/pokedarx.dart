@@ -106,16 +106,18 @@ print('--- QUESTÃO 6: Herança ---');
 // QUEM FOR FAZER A QUESTÃO 9, JÁ APROVEITA E DÁ UMA ORGANIZADA NESSE MAIN, TÁ MEIO BAGUNÇADO 
 // agr entendi pq pediu pra mim fazer kkkkkkkkkkkkkkkkkkkkkkkkkkkkk eu dobro e passo pro proximo
 
+
+
   
-print('\nTeste Pokdex');
+// print('\n---TESTE POKDEX---');
 
-Pokemon pikachu = Pokemon('Pikachu', 55, 40, 100);
+// Pokemon pikachu = Pokemon(25, 'Pikachu', 'Eletrico', 10, 35, 35, false, 'Raichu', 20);
 
-pikachu.favoritar();
-pikachu.marcarComoVisto();
-pikachu.marcarComoCapturado();
-pikachu.favoritar();
-pikachu.desfavoritar();
+// pikachu.favoritar();
+// pikachu.marcarComoVisto();
+// pikachu.marcarComoCapturado();
+// pikachu.favoritar();
+// pikachu.desfavoritar();
 
 }
 
