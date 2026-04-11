@@ -15,6 +15,11 @@ class Pokemon implements RegistravelNaPokedex
 
   int energia;
 
+  bool visto = false;
+  bool favorito = false;
+  bool capturado = false;
+  
+
   // Construtor principal
   Pokemon(
     this.numero,
@@ -116,6 +121,45 @@ class Pokemon implements RegistravelNaPokedex
     return _nivel;
   }
 
+
+  
+
+
+
+  @override
+  void marcarComoVisto() {
+    visto = true;
+    print('$nome foi marcado como visto');
+  }
+  
+  @override
+  void marcarComoCapturado() {
+    capturado = true;
+    visto = true;
+    print('$nome foi capturado e marcado como visto');
+  }
+  
+  @override
+  void favoritar() {
+    if (capturado == false) {
+      print('Não é possível favoritar $nome sem capturar primeiro');
+      return;
+    }
+    else {
+      favorito = true;
+      print('$nome foi favoritado');
+    }
+  }
+  
+  @override
+  void desfavoritar() {
+    favorito = false;
+    print('$nome foi desfavoritado');
+  }
+
+
+
+  
   void exibirFicha() {
     print('--- Ficha do Pokémon ---');
     print('Número: #$numero');
