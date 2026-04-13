@@ -1,12 +1,14 @@
 import 'pokemon.dart';
 
+// Questão 6 — Herança por tipo de Pokémon
+
 class PokemonFogo extends Pokemon {
     PokemonFogo(int numero, String nome, int nivel, int hpAtual, int hpMaximo, bool capturado, String? proximaEvolucao, int nivelEvolucao, {int energia = 100})
       : super(numero, nome, 'Fogo', nivel, hpAtual, hpMaximo, capturado, proximaEvolucao, nivelEvolucao, energia: energia);
 
   @override
   int calcularAtaqueBase() {
-    return nivel * 3;
+    return nivel * 3; // PokemonFogo: ataque base = nivel * 3
   }
 
   @override
@@ -22,7 +24,7 @@ class PokemonAgua extends Pokemon {
 
   @override
   int calcularAtaqueBase() {
-    return (nivel * 2) + 10;
+    return (nivel * 2) + 10; // PokemonAgua: ataque base = nivel * 2 + 10
   }
 
   @override
@@ -38,7 +40,7 @@ class PokemonEletrico extends Pokemon {
 
   @override
   int calcularAtaqueBase() {
-    return (nivel * 2) + 15;
+    return (nivel * 2) + 15; // PokemonEletrico: ataque base = nivel * 2 + 15
   }
 
   @override
@@ -47,6 +49,8 @@ class PokemonEletrico extends Pokemon {
     super.exibirFicha();
   }
 }
+
+// Questão 7 — Habilidades com classe abstrata
 
 abstract class Habilidade {
     String nome;
@@ -57,14 +61,14 @@ abstract class Habilidade {
     void usar(Pokemon usuario, Pokemon alvo);
 }
 
-class Thunderbolt extends Habilidade {
-  Thunderbolt() : super('Thunderbolt', 15);
+class ChoqueDoTrovao extends Habilidade {
+  ChoqueDoTrovao() : super('Choque do Trovão', 15);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
     if (usuario.energia >= custoEnergia) {
       usuario.energia -= custoEnergia;
-      int dano = usuario.calcularAtaqueBase() + 5;
+      int dano = usuario.calcularAtaqueBase() + 5; // ChoqueDoTrovao: dano = ataque base + 5
       alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
@@ -73,14 +77,14 @@ class Thunderbolt extends Habilidade {
   }
 }
 
-class HydroPump extends Habilidade {
-  HydroPump() : super('Hydro Pump', 5);
+class JatoDAgua extends Habilidade {
+  JatoDAgua() : super('Jato D\'Água', 10);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
     if (usuario.energia >= custoEnergia) {
       usuario.energia -= custoEnergia;
-      int dano = usuario.calcularAtaqueBase() + 7;
+      int dano = usuario.calcularAtaqueBase() + 3; // JatoDAgua: dano = ataque base + 3
       alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
@@ -89,14 +93,14 @@ class HydroPump extends Habilidade {
   }
 }
 
-class Flamethrower extends Habilidade {
-  Flamethrower() : super('Flamethrower', 15);
+class LancaChamas extends Habilidade {
+  LancaChamas() : super('Lança-Chamas', 15);
 
   @override
   void usar(Pokemon usuario, Pokemon alvo) {
     if (usuario.energia >= custoEnergia) {
       usuario.energia -= custoEnergia;
-      int dano = usuario.calcularAtaqueBase() + 5;
+      int dano = usuario.calcularAtaqueBase() + 7; // LancaChamas: dano = ataque base + 7
       alvo.receberDano(dano);
       print('${usuario.nome} usou $nome! Causou $dano de dano em ${alvo.nome}.');
     } else {
@@ -104,6 +108,9 @@ class Flamethrower extends Habilidade {
     }
   }
 }
+
+// Questão 8 — Polimorfismo em batalha
+// Função que usa polimorfismo puro (sem if/switch/teste de tipo)
 
 void executarTurno(Pokemon atacante, Pokemon defensor, Habilidade habilidade) {
   print('\n--- Turno de Batalha ---');
