@@ -174,3 +174,5 @@ class Pokemon implements RegistravelNaPokedex
     print('------------------------\n');
   }
 }
+
+
